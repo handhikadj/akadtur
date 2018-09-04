@@ -29,7 +29,7 @@
 					<!-- end breadcrumb -->
 					
 					<!-- block -->
-					<div id="block_bg" class="block">
+						<div id="block_bg" class="block">
 						<div class="navbar navbar-inner block-header">
 							<div id="" class="muted pull-left"></div>
 						</div>
@@ -73,7 +73,7 @@
 												<tr>
 													<input type="hidden" name="test" value="<?php echo $a; ?>">
 													<td width="70"><img  class="img-rounded" src="admin/<?php echo $row['location']; ?>" height="50" width="40"></td>
-													<td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td> 
+													<td><?php echo $row['name']; ?></td> 
 													<td><?php echo $row['class_name']; ?></td> 
 													
 													<td width="80">

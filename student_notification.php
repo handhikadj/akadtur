@@ -75,7 +75,7 @@
 								?>
 								<input id="" class="" name="selector[]" type="checkbox" value="<?php echo $id; ?>">	
 								<?php } ?>	
-									<strong><?php echo $row['firstname']." ".$row['lastname'];  ?></strong>
+									<strong><?php echo $row['name'];  ?></strong>
 									<?php echo $row['notification']; ?> In 
 									<a href="<?php echo $row['link']; ?><?php echo '?id='.$get_id; ?>">
 									<?php echo $row['class_name']; ?> 

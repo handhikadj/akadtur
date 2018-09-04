@@ -7,11 +7,11 @@ $my_message = $_POST['my_message'];
 
 $query = mysqli_query($db, "select * from teacher where teacher_id = '$teacher_id'")or die(mysqli_error($db));
 $row = mysqli_fetch_array($query);
-$name = $row['firstname']." ".$row['lastname'];
+$name = $row['name'];
 
 $query1 = mysqli_query($db, "select * from student where student_id = '$session_id'")or die(mysqli_error($db));
 $row1 = mysqli_fetch_array($query1);
-$name1 = $row1['firstname']." ".$row1['lastname'];
+$name1 = $row1['name'];
 
 
 

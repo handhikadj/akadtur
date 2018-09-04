@@ -3,8 +3,7 @@ header('Content-Type: application/json');
 include('dbcon.php');
 
 $email= $_POST['email'];
-$fn = $_POST['fn'];
-$ln = $_POST['ln'];
+$name = $_POST['name'];
 $class_id = $_POST['class_id'];
 
 try {
@@ -19,7 +18,7 @@ try {
 	} elseif ($ketemu_student > 0) {
 		throw new Exception("Email Sudah Terdaftar");
 	} else {
-		$query_insert = " INSERT INTO student (email, firstname, lastname, location, class_id, status) VALUES ('$email', '$fn','$ln','uploads/NO-IMAGE-AVAILABLE.jpg','$class_id','Unregistered') ";
+		$query_insert = " INSERT INTO student (email, name, location, class_id, status) VALUES ('$email', '$name','uploads/NO-IMAGE-AVAILABLE.jpg','$class_id','Unregistered') ";
 		$exec = mysqli_query($db, $query_insert) or die(mysqli_error($db));
 		$data = [
 			"message" => "Berhasil Memasukkan Data",

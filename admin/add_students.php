@@ -32,13 +32,7 @@
 
 					<div class="control-group">
 						<div class="controls">
-							<input name="fn" class="input focused" id="focusedInput" type="text" placeholder = "Firstname" required>
-						</div>
-					</div>
-
-					<div class="control-group">
-						<div class="controls">
-							<input  name="ln" class="input focused" id="focusedInput" type="text" placeholder = "Lastname" required>
+							<input name="name" class="input focused" id="focusedInput" type="text" placeholder = "Nama Lengkap" required>
 						</div>
 					</div>
 

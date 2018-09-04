@@ -44,7 +44,7 @@
 										?>
 										
 										
-										Guru: <strong><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?></strong>
+										Guru: <strong><?php echo $row['name']; ?></strong>
 															<br>
 															<img id="avatar" class="img-polaroid" src="admin/<?php echo $row['location']; ?>" width>
 															<p><a href=""><i class="icon-search"></i> lihat info</a></p>

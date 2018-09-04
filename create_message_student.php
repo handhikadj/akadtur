@@ -24,12 +24,12 @@
                                 <select name="teacher_id" class="chzn-select" required>
                                   	<option></option>
 								<?php
-								$query = mysqli_query($db, "select * from teacher order by firstname");
+								$query = mysqli_query($db, "select * from teacher order by name");
 								while($row = mysqli_fetch_array($query)){
 								
 								?>
 								
-								<option value="<?php echo $row['teacher_id']; ?>"><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?> </option>
+								<option value="<?php echo $row['teacher_id']; ?>"><?php echo $row['name']; ?> </option>
 								
 								<?php } ?>
                                 </select>

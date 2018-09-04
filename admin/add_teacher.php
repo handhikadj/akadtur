@@ -17,50 +17,42 @@
                                 -->	
 
                                 <div class="control-group">
-                                   <label>Jurusan:</label>
-                                   <div class="controls">
+                                 <label>Jurusan:</label>
+                                 <div class="controls">
                                     <select name="department"  class="" required>
-                                     <option></option>
-                                     <?php
-                                     $query = mysqli_query($db, "select * from department order by department_name");
-                                     while($row = mysqli_fetch_array($query)){
+                                       <option></option>
+                                       <?php
+                                       $query = mysqli_query($db, "select * from department order by department_name");
+                                       while($row = mysqli_fetch_array($query)){
 
-                                      ?>
-                                      <option value="<?php echo $row['department_id']; ?>"><?php echo $row['department_name']; ?></option>
-                                  <?php } ?>
-                              </select>
+                                          ?>
+                                          <option value="<?php echo $row['department_id']; ?>"><?php echo $row['department_name']; ?></option>
+                                      <?php } ?>
+                                  </select>
+                              </div>
+                          </div>
+
+                          <div class="control-group">
+                            <div class="controls">
+                              <input class="input focused" name="email" id="focusedInput" type="email" placeholder = "Email">
                           </div>
                       </div>
 
                       <div class="control-group">
-                        <div class="controls">
-                          <input class="input focused" name="email" id="focusedInput" type="email" placeholder = "Email">
-                      </div>
-                  </div>
+                         <div class="controls">
+                            <input class="input focused" name="name" id="focusedInput" type="text" placeholder = "Nama Lengkap">
+                        </div>
+                    </div>
 
                   <div class="control-group">
-                   <div class="controls">
-                    <input class="input focused" name="firstname" id="focusedInput" type="text" placeholder = "Firstname">
+                     <div class="controls">
+                        <button name="save" class="btn btn-info"><i class="icon-plus-sign icon-large"></i></button>
+
+                    </div>
                 </div>
-            </div>
-
-            <div class="control-group">
-             <div class="controls">
-              <input class="input focused" name="lastname" id="focusedInput" type="text" placeholder = "Lastname">
-          </div>
-      </div>
-
-
-
-      <div class="control-group">
-       <div class="controls">
-        <button name="save" class="btn btn-info"><i class="icon-plus-sign icon-large"></i></button>
-
+            </form>
+        </div>
     </div>
-</div>
-</form>
-</div>
-</div>
 </div>
 <!-- /block -->
 </div>
@@ -89,7 +81,7 @@ if (isset($_POST['save'])) {
     mysqli_query($db, $query6) or die(mysqli_error($db)); 
     ?>
     <script>
-       window.location = "teachers.php"; 
-   </script>
+     window.location = "teachers.php"; 
+ </script>
 <?php   }} ?>
 

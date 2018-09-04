@@ -39,8 +39,7 @@
 												$id = $row['teacher_class_student_id'];
 											?>                          
 										<tr id="del<?php echo $id; ?>">
-											<td><?php echo $row['firstname']; ?></td>
-	                                        <td><?php  echo $row['lastname']; ?></td>
+											<td><?php echo $row['name']; ?></td>
                                 		</tr>
                          
 						 				<?php } ?>

@@ -78,7 +78,7 @@
 										 <td><?php echo $row['assignment_fdatein']; ?></td>
                                          <td><?php  echo $row['fname']; ?></td>
                                          <td><?php echo $row['fdesc']; ?></td>                                                                        
-                                         <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>   
+                                         <td><?php echo $row['name']; ?></td>   
 										 <?php if ($session_id == $student_id){ ?>
                                          <td>
 										 <span class="badge badge-success"><?php echo $row['grade']; ?></span>

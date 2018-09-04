@@ -67,7 +67,7 @@
 												</a>
 												<p class="class"><?php echo $row['class_name']; ?></p>
 												<p class="subject"><?php echo $row['subject_code']; ?></p>
-												<p class="subject"><?php echo $row['firstname']." ".$row['lastname']?></p>
+												<p class="subject"><?php echo $row['name']?></p>
 													
 											
 											</li>

@@ -42,8 +42,8 @@
 											<span> <p><?php ?></p> </span>
 											</div>
 											</a>
-											<p class="class"><?php echo $row['lastname'];?></p>
-											<p class="subject"><?php echo $row['firstname']; ?></p>
+											<p class="class"><?php echo $row['name'];?></p>
+											<!-- <p class="subject"><?php echo $row['firstname']; ?></p> -->
 											<a  href="#<?php echo $id; ?>" data-toggle="modal"><i class="icon-trash"></i> Hapus Siswa</a>	
 										</li>
 										<?php include("remove_student_modal.php"); ?>

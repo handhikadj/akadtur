@@ -9,7 +9,7 @@ $errflag = false;
 
 $uploaded_by_query = mysqli_query($db, "select * from teacher where teacher_id = '$session_id'")or die(mysqli_error($db));
 $uploaded_by_query_row = mysqli_fetch_array($uploaded_by_query);
-$uploaded_by = $uploaded_by_query_row['firstname']."".$uploaded_by_query_row['lastname'];
+$uploaded_by = $uploaded_by_query_row['name'];
 
 /* $id_class=$_POST['id_class']; */
 $name=$_POST['name'];

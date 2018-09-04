@@ -11,7 +11,7 @@ $email = $_POST['email_student'];
 $token = genRand(12);
 
 try {
-	$email_query = " SELECT student_id, email, token, firstname, status FROM student WHERE email = '$email' ORDER BY student_id DESC LIMIT 1 ";
+	$email_query = " SELECT student_id, email, token, name, status FROM student WHERE email = '$email' ORDER BY student_id DESC LIMIT 1 ";
 	$result = mysqli_query($db, $email_query) OR die(mysqli_error($db));
 	$row = mysqli_fetch_assoc($result);
 	$ketemu_email = mysqli_num_rows($result);
@@ -46,7 +46,7 @@ try {
 
 	    //Recipients
 	    $mail->setFrom('dadangsukatoro@gmail.com', 'Admin');
-	    $mail->addAddress($email, $row['firstname']);     // Add a recipient
+	    $mail->addAddress($email, $row['name']);     // Add a recipient
 
 	    $if_token = empty($row2['token']) ? $token : $row2['token'];
 	    $html_template = "<h3 style='text-align: center;'> $if_token </h3>";

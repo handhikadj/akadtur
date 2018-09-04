@@ -44,7 +44,7 @@
 	                                        <td><?php  echo $row['fname']; ?></td>
 	                                        <td><?php echo $row['fdesc']; ?></td>
 	                                        <td><?php echo $row['fdatein']; ?></td>
-	                                        <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
+	                                        <td><?php echo $row['name'] ?></td>
 	                                        <td><?php echo $row['class_name']; ?></td>
 
                                			</tr>

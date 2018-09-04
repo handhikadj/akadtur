@@ -28,7 +28,7 @@
 							
 							?>
 							
-							<option value="<?php echo $row['teacher_id']; ?>"><?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?> </option>
+							<option value="<?php echo $row['teacher_id']; ?>"><?php echo $row['name']; ?>?> </option>
 							
 							<?php } ?>
                             </select>

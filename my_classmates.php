@@ -52,8 +52,8 @@
 														<img id="student_avatar_class" src ="admin/<?php echo $row['location'] ?>" width="124" height="140" class="img-polaroid">
 													<div><span></span></div>
 												</a>
-												<p class="class"><?php echo $row['lastname'];?></p>
-												<p class="subject"><?php echo $row['firstname']; ?></p>
+												<p class="class"><?php echo $row['name'];?></p>
+												
 											</li>
 									<?php } ?>
 									</ul>

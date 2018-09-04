@@ -12,7 +12,7 @@
 								$row = mysqli_fetch_array($query);
 						?>
 						<li class="dropdown">
-							<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user icon-large"></i><?php echo $row['firstname']." ".$row['lastname'];  ?> <i class="caret"></i></a>
+							<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user icon-large"></i><?php echo $row['name'];?> <i class="caret"></i></a>
 								<ul class="dropdown-menu">
 									<li>
 										<a href="change_password_teacher.php"><i class="icon-circle"></i> Ubah Password</a>

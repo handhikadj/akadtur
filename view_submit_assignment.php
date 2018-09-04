@@ -82,7 +82,7 @@
 										 <td><?php echo $row['assignment_fdatein']; ?></td>
                                          <td><?php  echo $row['fname']; ?></td>
                                          <td><?php echo $row['fdesc']; ?></td>                                                                        
-                                         <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>                                                                        
+                                         <td><?php echo $row['name']; ?></td>                                                                        
                                          <td><a href="<?php echo $row['floc']; ?>"><i class="icon-download icon-large"></i></a></td>                                                                        
                                          <td width="140">
 										 <form method="post" action="save_grade.php">

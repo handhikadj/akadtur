@@ -53,7 +53,7 @@
 		<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 		</td>
 	
-		<td><?php echo $row['firstname'] . " " . $row['lastname']; ?></td> 
+		<td><?php echo $row['name']; ?></td> 
 		<td><?php echo $row['username']; ?></td> 
 	
 		<td width="100"><?php echo $row['class_name']; ?></td> 
