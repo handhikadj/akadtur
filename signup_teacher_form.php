@@ -1,17 +1,18 @@
 <form id="email_teacher" class="form-signin" method="post">
-<h3 class="form-signin-heading"><i class="icon-lock"></i> Daftar Sebagai Guru</h3>
-<input type="text" class="input-block-level" name="email_teacher" placeholder="Email" required>
-<button id="signin_emailt" name="submit_email_teacher" class="btn btn-info" type="submit"><i class="icon-check icon-large"></i> Daftar</button>
+	<h3 class="form-signin-heading"><i class="icon-lock"></i> Daftar Sebagai Guru</h3>
+	<input type="text" class="input-block-level" name="email_teacher" placeholder="Email" required>
+	<button id="signin_emailt" name="submit_email_teacher" class="btn btn-info" type="submit"><i class="icon-check icon-large"></i> Daftar</button>
 </form>
 
-<form id="signin_teacher_form" class="form-signin" method="post">
-<h3 class="form-signin-heading"><i class="icon-lock"></i> Daftar Sebagai Guru</h3>
-<input type="text" class="input-block-level" name="token" placeholder="Kode Aktivasi" required>
-<input type="text" class="input-block-level" id="username" name="username" placeholder="Username" required>
-<input type="password" class="input-block-level" id="password" name="password" placeholder="Password" required>
-<input type="password" class="input-block-level" id="cpassword" name="cpassword" placeholder="Masukkan Kembali Password" required>
-<button id="signin" name="login" class="btn btn-info" type="submit"><i class="icon-check icon-large"></i> Daftar</button>
+<form id="signin_teacher_form" class="form-signin signin_teacher_hide" method="post">
+	<h3 class="form-signin-heading"><i class="icon-lock"></i> Daftar Sebagai Guru</h3>
+	<input type="text" class="input-block-level" name="token" placeholder="Kode Aktivasi" required>
+	<input type="text" class="input-block-level" id="username" name="username" placeholder="Username" required>
+	<input type="password" class="input-block-level" id="password" name="password" placeholder="Password" required>
+	<input type="password" class="input-block-level" id="cpassword" name="cpassword" placeholder="Masukkan Kembali Password" required>
+	<button id="signin" name="login" class="btn btn-info" type="submit"><i class="icon-check icon-large"></i> Daftar</button>
 </form>
+
 <script>
 jQuery(document).ready(function(){
 	jQuery("#signin_teacher_form").submit(function(e){
@@ -46,9 +47,3 @@ jQuery(document).ready(function(){
 });
 </script>
 <a onclick="window.location='index.php'" id="btn_login" name="login" class="btn" type="submit"><i class="icon-signin icon-large"></i> Klik disini untuk Masuk ke akun</a>
-
-
-
-
-
-

@@ -19,16 +19,13 @@
 						url: "login.php",
 						data: formData,
 						success: function(response){
-						if(html=='true')
-						{
-						$.jGrowl("Selamat Datang di SMK KARYA BAHANA MANDIRI 1", { header: 'Akses Diberikan' });
-						var delay = 2500;
-							setTimeout(function(){ window.location = 'dashboard.php'  }, delay);  
-						}
-						else
-						{
-						$.jGrowl("Mohon Periksa Kembali Username dan Password", { header: 'Gagal Masuk' });
-						}
+							if(response=='true') {
+								$.jGrowl("Selamat Datang di SMK KARYA BAHANA MANDIRI 1", { header: 'Akses Diberikan' });
+								var delay = 2500;
+								setTimeout(function(){ window.location = 'dashboard.php'  }, delay);  
+							} else {
+								$.jGrowl("Mohon Periksa Kembali Username dan Password", { header: 'Gagal Masuk' });
+							}
 						}
 						
 					});

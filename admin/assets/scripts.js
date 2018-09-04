@@ -1,7 +1,3 @@
-$(window).on('load', function(){
-	$("#signin_teacher_form").hide()
-})
-
 $(function() {
     // Side Bar Toggle
     $('.hide-sidebar').click(function() {
@@ -33,9 +29,12 @@ $(function() {
 				console.log(response[0].message);
 				if (response[0].success == "true") {
 					var mess = "Berhasil Mendaftar. Silahkan Periksa Email Anda Untuk Memasukkan Kode Aktivasi"
-					setTimeout(function() { $.jGrowl(mess, { header: 'Sukses' }) }, 1500)
-					$("#signin_teacher_form").show('slow')
-					$("#email_teacher").hide('slow')
+					$.jGrowl(mess, { header: 'Sukses', life: 5000 })
+					setTimeout(() => { 
+						$("#signin_teacher_form").removeClass('signin_teacher_hide').addClass("signin_teacher_show")
+						$("#email_teacher").addClass("email_teacher_hide")
+					}, 1000)
+					
 				} 
 				else $.jGrowl(response[0].message, { header: 'Gagal Mendaftar' })
 			},
@@ -45,5 +44,42 @@ $(function() {
 		});
 	})
 
+	$("#email_student").submit(function(e){
+		e.preventDefault()
+		var formData = $(this).serialize();
+		$.ajax({
+			method: "POST",
+			url: "./email_student_token.php",
+			data: formData,
+			dataType: "JSON",
+			success: function(response) {
+				console.log(response[0].message);
+				if (response[0].success == "true") {
+					var mess = "Berhasil Mendaftar. Silahkan Periksa Email Anda Untuk Memasukkan Kode Aktivasi"
+					$.jGrowl(mess, { header: 'Sukses', life: 5000 })
+					setTimeout(() => { 
+						$("#signin_student_form").removeClass('signin_student_hide').addClass("signin_student_show")
+						$("#email_student").addClass("email_student_hide")
+					}, 1000)
+					
+				} 
+				else $.jGrowl(response[0].message, { header: 'Gagal Mendaftar' })
+			},
+			error: function(response){
+				alert("Terjadi Error Pada Sistem")
+			}
+		});
+	})
+
+	$("#show-excel-student").click(function(){
+		$("#form-excel-student").removeClass("form-excel-student-hide").addClass("form-excel-student")
+		$(this).hide('slow')
+		$("#hide-excel-student").show(200)
+	})
+	$("#hide-excel-student").click(function(){
+		$("#form-excel-student").removeClass("form-excel-student").addClass("form-excel-student-hide")
+		$(this).hide('slow')
+		$("#show-excel-student").show(200)
+	})
 
 });

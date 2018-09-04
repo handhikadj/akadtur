@@ -1,4 +1,17 @@
 	<?php include('dbcon.php'); ?>
+	<div style="display: flex;">
+		<form action=""
+		id="form-excel-student" 
+		class="form-excel-student-hide" 
+		method="post"
+		enctype="multipart/form-data">
+			<input type="file" name="student-excel">
+		</form>
+		<button class="btn btn-info" id="show-excel-student" style="height: 60%;">Upload Excel</button>
+		<button class="btn btn-danger" id="hide-excel-student" style="height: 60%; display: none;">Tutup</button>
+	</div>
+
+
 	<form action="delete_student.php" method="post">
 	<table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
 	<a data-toggle="modal" href="#student_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>

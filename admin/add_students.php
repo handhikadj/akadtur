@@ -26,6 +26,12 @@
 
 					<div class="control-group">
 						<div class="controls">
+							<input name="email" class="input focused" id="focusedInput" type="text" placeholder = "Email" required>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<div class="controls">
 							<input name="fn" class="input focused" id="focusedInput" type="text" placeholder = "Firstname" required>
 						</div>
 					</div>
@@ -60,21 +66,25 @@
 				type: "POST",
 				url: "save_student.php",
 				data: formData,
-				success: function(html){
-					$.jGrowl("Student Successfully  Added", { header: 'Student Added' });
-					$('#studentTableDiv').load('student_table.php', function(response){
-						$("#studentTableDiv").html(response);
-						$('#example').dataTable( {
-							"sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
-							"sPaginationType": "bootstrap",
-							"oLanguage": {
-								"sLengthMenu": "_MENU_ records per page"
-							}
-						} );
-						$(_this).find(":input").val('');
-						$(_this).find('select option').attr('selected',false);
-						$(_this).find('select option:first').attr('selected',true);
-					});
+				success: function(response){
+					if (response.success == "false") {
+						alert(response.message)
+					} else {
+						$.jGrowl("Student Successfully  Added", { header: 'Student Added' });
+						$('#studentTableDiv').load('student_table.php', function(response){
+							$("#studentTableDiv").html(response);
+							$('#example').dataTable( {
+								"sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+								"sPaginationType": "bootstrap",
+								"oLanguage": {
+									"sLengthMenu": "_MENU_ records per page"
+								}
+							} );
+							$(_this).find(":input").val('');
+							$(_this).find('select option').attr('selected',false);
+							$(_this).find('select option:first').attr('selected',true);
+						});
+					}
 				}
 			});
 		});
