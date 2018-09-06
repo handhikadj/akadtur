@@ -31,7 +31,7 @@ if (isset($_POST['submit-excel']) && isset($_FILES['excel-file']) && in_array($_
 	    $firstRow = $sheetData[$row][0];
 	    $secondRow = $sheetData[$row][1];
 
-	    $query = "INSERT INTO posts (name, post) VALUES(:name, :post)";
+	    $query = "INSERT INTO student (name, post) VALUES(:name, :post)";
 	    $stmt = $db->prepare($query);
 
 	    $data = [

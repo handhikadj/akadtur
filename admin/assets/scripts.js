@@ -1,4 +1,6 @@
 $(function() {
+	$("#opt11").hide()
+	$("#opt12").hide()
     // Side Bar Toggle
     $('.hide-sidebar').click(function() {
 	  $('#sidebar').hide('fast', function() {
@@ -30,6 +32,7 @@ $(function() {
 				if (response[0].success == "true") {
 					var mess = "Berhasil Mendaftar. Silahkan Periksa Email Anda Untuk Memasukkan Kode Aktivasi"
 					$.jGrowl(mess, { header: 'Sukses', life: 5000 })
+
 					setTimeout(() => { 
 						$("#signin_teacher_form").removeClass('signin_teacher_hide').addClass("signin_teacher_show")
 						$("#email_teacher").addClass("email_teacher_hide")
@@ -76,10 +79,27 @@ $(function() {
 		$(this).hide('slow')
 		$("#hide-excel-student").show(200)
 	})
+
 	$("#hide-excel-student").click(function(){
 		$("#form-excel-student").removeClass("form-excel-student").addClass("form-excel-student-hide")
 		$(this).hide('slow')
 		$("#show-excel-student").show(200)
 	})
+
+	$("#qtype").change(function() {	
+		var x = $(this).val()
+		if(x == "1") {
+			$("#opt12").hide()
+			$("#opt11").show()
+		} else if(x == "2") {
+			$("#opt11").hide()
+			$("#opt12").show()
+		} else {
+			$("#opt11").hide()
+			$("#opt12").hide()
+		}
+	})
+
+
 
 });

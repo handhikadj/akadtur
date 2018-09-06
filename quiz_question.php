@@ -36,7 +36,8 @@
 										<?php include('modal_delete_quiz_question.php'); ?>
 										<thead>
 											<tr>
-												<!-- <th></th> -->
+												<th />
+												<th>No.</th>
 												<th>Pertanyaan</th>
 												<th>Nilai</th>
 												<th>Jenis Pertanyaan</th>
@@ -49,23 +50,25 @@
 											<?php
 											$query = mysqli_query($db, "select * FROM quiz_question
 												LEFT JOIN question_type on quiz_question.question_type_id = question_type.question_type_id
-												where quiz_id = '$get_id' order by date_added DESC ")or die(mysqli_error($db));
+												where quiz_id = '$get_id' order by date_added ASC ")or die(mysqli_error($db));
 											
 											while($row = mysqli_fetch_array($query)){
 												$id  = $row['quiz_question_id'];
 												?>
 												<tr id="del<?php echo $id; ?>">
-													
 													<td width="30">
 														<input id="optionsCheckbox" class="" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
 													</td>
-
-													<td><?php echo $row['question_text']; ?></td>
+													<td><?php echo substr($row['question_text'], 0, 1); ?></td>
+													<td>
+														<div id="substr-qtext">
+														<?php echo substr($row['question_text'], 1, -1); ?>
+														</div>
+													</td>
 													<td><?php echo $row['points']; ?></td>
 													<td><?php  echo $row['question_type']; ?></td>
 													<td><?php  echo $row['answer']; ?></td>
 													<td><?php echo $row['date_added']; ?></td>
-													
 													<td width="30"><a href="edit_question.php<?php echo '?id='.$get_id; ?>&<?php echo 'quiz_question_id='.$id; ?>" class="btn btn-success"><i class="icon-pencil"></i></a></td>
 												</tr>
 											<?php } ?>

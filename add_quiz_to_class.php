@@ -32,7 +32,8 @@
 											<option></option>
 												<?php
 													$query = mysqli_query($db, "select * from quiz where teacher_id = '$session_id'")or die(mysqli_error($db));
-													while ($row = mysqli_fetch_array($query)){ $id = $row['quiz_id'];
+													while ($row = mysqli_fetch_array($query)){
+													 $id = $row['quiz_id'];
 												?>
 												<option value="<?php echo $id; ?>"><?php echo $row['quiz_title']; ?></option>
 												<?php } ?>
@@ -102,7 +103,7 @@
 										mysqli_query($db, "insert into notification (teacher_class_id,notification,date_of_notification,link) value('$id[$i]','$name_notification',NOW(),'student_quiz_list.php')")or die(mysqli_error($db));
 									} ?>
 									<script>
-										window.location = 'teacher_quiz.php<?php echo "?id=".$session_id; ?>';
+										window.location = "teacher_quiz.php?id=<?php echo $session_id; ?>"
 									</script>
 								<?php
 									}

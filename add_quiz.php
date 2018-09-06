@@ -39,6 +39,8 @@
 										</div>
 									</div>
 
+									
+
 									<div class="control-group">
 										<div class="controls">										
 											<button name="save" type="submit" class="btn btn-success"><i class="icon-save"></i> Simpan</button>
@@ -46,15 +48,16 @@
 									</div>
 								</form>
 								<?php
-									if (isset($_POST['save'])){
+								if (isset($_POST['save'])) :
 									$quiz_title = $_POST['quiz_title'];
 									$description = $_POST['description'];
+									
 									mysqli_query($db, "insert into quiz (quiz_title,quiz_description,date_added,teacher_id) values('$quiz_title','$description',NOW(),'$session_id')")or die(mysqli_error($db));
 								?>
 								<script>
-								window.location = 'teacher_quiz.php<?php echo "?id=".$session_id; ?>';
+									window.location = "teacher_quiz.php?id=<?php echo $session_id; ?>";
 								</script>
-								<?php } ?>
+								<?php endif ?>
 
                             </div>
                         </div>
