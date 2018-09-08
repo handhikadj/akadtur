@@ -29,18 +29,9 @@ include('add_question_process.php');
 
                     <div class="block-content collapse in">
                         <div class="span12">
-                        	<a href="quiz_question.php?id=<?php echo $session_id; ?>" class="btn btn-success"><i class="icon-arrow-left"></i> Kembali</a>
+                        	<a href="quiz_question.php?id=<?php echo $get_id; ?>" class="btn btn-success"><i class="icon-arrow-left"></i> Kembali</a>
 
 					    	<form class="form-horizontal" method="post">
-					    		<div class="control-group">
-									<label class="control-label" for="inputEmail">No. </label>
-									<div class="controls">
-										<input type="text" class="span1"
-										name="no_otomatis" 
-										value="<?php echo $resultQuestionText; ?>" 
-										readonly>
-									</div>
-								</div>
 
 						        <div class="control-group">
 									<label class="control-label" for="inputPassword">Pertanyaan</label>
@@ -127,32 +118,5 @@ include('add_question_process.php');
 </div> <!-- end of container fluid -->
 
 <?php include('script.php'); ?>
-<!-- <script>
-	jQuery(document).ready(function() {
-		jQuery("#opt11").hide()
-		jQuery("#opt12").hide()
-		jQuery("#opt13").hide()
-
-		jQuery("#qtype").change(function() {	
-			var x = jQuery(this).val()
-			console.log(x)
-			if(x == "1") {
-				console.log("babi")
-				jQuery("#opt12").hide()
-				jQuery("#opt11").show()
-				jQuery("#opt13").hide()
-			} else if(x == "2") {
-				jQuery("#opt11").hide()
-				jQuery("#opt12").show()
-				jQuery("#opt13").hide()
-				console.log("anjing")
-			} else {
-				jQuery("#opt11").hide()
-				jQuery("#opt12").hide()
-				jQuery("#opt13").hide()
-			}
-		})
-	})
-</script> -->
 </body>
 </html>

@@ -1,9 +1,10 @@
 <?php
 $get_id = $_GET['id'] ?? '' ;
-$noOtomate = $_POST['no_otomatis'] ?? '' ;
+$quiz_question_id = $_GET['quiz_question_id'] ?? '' ;
+// $noOtomate = $_POST['no_otomatis'] ?? '' ;
 
 $question = $_POST['question'] ?? '' ;
-$noPlusQuestion = "$noOtomate $question";
+// $noPlusQuestion = "$noOtomate $question";
 $points = $_POST['points'] ?? '' ;
 $type = $_POST['question_type'] ?? '' ;
 	
@@ -18,39 +19,28 @@ $ans5 = $_POST['ans5'] ?? '' ;
 // Jawaban True/False
 $answertf = $_POST['answertf'] ?? '' ;
 
-$queryFindQuestion = "SELECT * FROM quiz_question
-					ORDER BY quiz_question_id DESC LIMIT 1";
-$resultFindQuestion = mysqli_query($db, $queryFindQuestion) or die(mysqli_error($db));
-
-$row = mysqli_fetch_assoc($resultFindQuestion);
-$quiz_question_id = !empty($row['quiz_question_id']) ? $row['quiz_question_id'] : '' ;
-
-// Buat Nomor Otomatis Pada Setiap Pertanyaan
-$queryNoQuestion = " SELECT question_text
-					FROM quiz_question WHERE quiz_id = '$get_id'
-					ORDER BY question_text DESC LIMIT 1 ";
-$resultNoQuestion = mysqli_query($db, $queryNoQuestion);
-$rowNoQuestion = mysqli_fetch_assoc($resultNoQuestion);
-
-$quiz_question_text = !empty($rowNoQuestion['question_text']) ? strip_tags($rowNoQuestion['question_text']) : '' ;
-$explodedQuestionText = explode(" ", $quiz_question_text);
-$resultQuestionText = $explodedQuestionText[0];
-$resultQuestionText++;
-
 if (isset($_POST['save'])) {
 	// Jika Jenis Pertanyaan == True/False
 	if ($type  == '2') {
 		$queryAnsTf = "INSERT INTO quiz_question 
 					(quiz_id, question_text, date_added, points, answer, question_type_id) 
-					VALUES ('$get_id', '$noPlusQuestion', NOW(), '$points', '$answertf', '$type')";
+					VALUES ('$get_id', '$question', NOW(), '$points', '$answertf', '$type')";
 
 		mysqli_query($db, $queryAnsTf) or die(mysqli_error($db));
 	} else {
 		$queryAnsPg = "INSERT INTO quiz_question 
 					(quiz_id, question_text, date_added, points, answer, question_type_id) 
-					VALUES ('$get_id', '$noPlusQuestion', NOW(), '$points', '$answerpg', '$type')";
+					VALUES ('$get_id', '$question', NOW(), '$points', '$answerpg', '$type')";
 
 		mysqli_query($db, $queryAnsPg) or die(mysqli_error($db));
+
+		// Memasukkan quiz_question_id ke table answer
+		$queryFindQuestion = "SELECT * FROM quiz_question
+							ORDER BY quiz_question_id DESC LIMIT 1";
+		$resultFindQuestion = mysqli_query($db, $queryFindQuestion) or die(mysqli_error($db));
+
+		$row = mysqli_fetch_assoc($resultFindQuestion);
+		$quiz_question_id = !empty($row['quiz_question_id']) ? $row['quiz_question_id'] : '' ;
 
 		$aQuery = "INSERT INTO answer 
 				(quiz_question_id, answer_text, choices) 
@@ -77,7 +67,7 @@ if (isset($_POST['save'])) {
 
 	echo "
 	<script>
-	window.location = 'quiz_question.php?id={$get_id}'
+		window.location = 'quiz_question.php?id={$get_id}'
 	</script>";
 	
 }

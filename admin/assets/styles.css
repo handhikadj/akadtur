@@ -5,6 +5,59 @@ body {
 	background-color: #f5f5f5;
 }
 
+.container-for-excel {
+  display: flex;
+  width: 375px;
+  justify-content: space-between; 
+}
+
+.for-loading-excel {
+  height: 5px;
+  background: red;
+  transition: all 0.25s ease-in;
+}
+
+/*Teacher Upload Excel Questions*/
+
+.input-file-container {
+  position: relative;
+  width: 100%;
+} 
+
+.form-excel-students {
+  margin-bottom: 0px;
+}
+
+.js .input-file {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  opacity: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.file-return {
+  margin: 0;
+}
+
+.for-excel-label {
+  margin-bottom: 0;  
+  padding-left: 10px;
+}
+
+.js .file-return {
+  font-style: italic;
+  font-size: .9em;
+  font-weight: bold;
+}
+
+.js .file-return:not(:empty):before {
+  content: "Nama File: ";
+  font-style: normal;
+  font-weight: normal;
+}
+
 #substr-qtext {
   max-width: 150px;
   white-space: nowrap;
@@ -260,6 +313,11 @@ body {
   position: absolute;
   top: auto;
   bottom: 270px;
+}
+
+.the-upload-excel {
+  font-size: 18px;
+  margin-right: 5px; 
 }
 
 /* Icons

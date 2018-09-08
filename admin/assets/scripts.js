@@ -1,4 +1,6 @@
 $(function() {
+	$("html").addClass("js")
+
 	$("#opt11").hide()
 	$("#opt12").hide()
     // Side Bar Toggle
@@ -100,6 +102,45 @@ $(function() {
 		}
 	})
 
+	var qtype = $("#qtype").val()
+	if (qtype == 1) $("#opt11").show()
+	else $("#opt12").show()
 
+	var fileInput  = $(".input-file"),  
+	    button     = $(".input-file-trigger"),
+	    the_return = $(".file-return");
 
-});
+	button.keydown(function(event){
+	    if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+	        fileInput.focus();  
+	    }  
+	}); 
+
+	button.click(function(event){
+	   fileInput.focus();
+	   return false;
+	});  
+
+	fileInput.on('change', function(event){
+	    var get_id = $("#get-id-excel").val()
+	    $("#excel-questions-form").ajaxForm({
+	    	data: {'hidden-excel': get_id},
+	    	uploadProgress: function(event, position, total, percentComplete) {
+	    		$("#for-loader-excel").addClass("for-loading-excel")
+				$("#for-loader-excel").css("width", percentComplete+"%")
+				// bar.width(percentVal);
+				// percent.html(percentVal);
+			},
+			success: function(response) {
+				var response = JSON.parse(response)
+				if (!response.success) {
+					$.jGrowl(response.message, { header: 'Gagal Mengupload', life: 5000 })
+				} else location.reload()
+			},
+			error: function(response) {
+				alert("Terjadi Error Pada System")
+			}
+		}).submit();
+	});
+
+}); // end of docs ready
