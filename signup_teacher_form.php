@@ -4,7 +4,7 @@
 	<button id="signin_emailt" name="submit_email_teacher" class="btn btn-info" type="submit"><i class="icon-check icon-large"></i> Daftar</button>
 </form>
 
-<form id="signin_teacher_form" class="form-signin signin_teacher_hide" method="post">
+<form id="signin_teacher_form" class="form-signin" method="post">
 	<h3 class="form-signin-heading"><i class="icon-lock"></i> Daftar Sebagai Guru</h3>
 	<input type="text" class="input-block-level" name="token" placeholder="Kode Aktivasi" required>
 	<input type="text" class="input-block-level" id="username" name="username" placeholder="Username" required>

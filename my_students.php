@@ -5,11 +5,11 @@
 		<?php include('navbar_teacher.php'); ?>
         <div class="container-fluid">
             <div class="row-fluid">
-				<?php include('class_sidebar.php'); ?>
+				<?php include('teacher_sidebar.php'); ?>
                 <div class="span9" id="content">
                      <div class="row-fluid">
 						<div class="pull-right">
-							<a href="add_student.php<?php echo '?id='.$get_id; ?>" class="btn btn-info"><i class="icon-plus-sign"></i> Tambah Siswa</a>
+							<!-- <a href="add_student.php<?php echo '?id='.$get_id; ?>" class="btn btn-info"><i class="icon-plus-sign"></i> Tambah Siswa</a> -->
 							<a onclick="window.open('print_student.php<?php echo '?id='.$get_id; ?>')"  class="btn btn-success"><i class="icon-list"></i> Daftar Siswa</a>
 						</div>
 						<?php include('my_students_breadcrums.php'); ?>

@@ -32,7 +32,7 @@ try {
 				$_SESSION['id']=$row['student_id'];
 				$data['success'] = "true_student";
 				echo json_encode($data);
-			}
+			} else throw new Exception("Mohon Periksa Kembali Username dan Password");
 		} elseif ( $num_row_teacher > 0 ) {
 			$row_teacher = mysqli_fetch_assoc($query_teacher);
 
@@ -40,7 +40,7 @@ try {
 				$_SESSION['id']=$row_teacher['teacher_id'];
 				$data['success'] = "true_teacher";
 				echo json_encode($data);
-			}
+			} else throw new Exception("Mohon Periksa Kembali Username dan Password");
 		} else throw new Exception("Mohon Periksa Kembali Username dan Password");
 	}
 } catch (Exception $e) {

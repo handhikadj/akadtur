@@ -5,7 +5,7 @@
 		<?php include('navbar_teacher.php'); ?>
         <div class="container-fluid">
             <div class="row-fluid">
-				<?php include('class_sidebar.php'); ?>
+				<?php include('teacher_sidebar.php'); ?>
                 <div class="span9" id="content">
                      <div class="row-fluid">
 						<div class="pull-right">

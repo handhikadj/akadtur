@@ -1,13 +1,15 @@
 <?php include('header_dashboard.php'); ?>
 <?php include('session.php'); ?>
 <?php $get_id = $_GET['id']; ?>
+
 <body>
 	<?php include('navbar_teacher.php'); ?>
     <div class="container-fluid">
         <div class="row-fluid">
-			<?php include('assignment_link.php'); ?>
+			<?php include('teacher_sidebar.php'); ?>
             <div class="span9" id="content">
                 <div class="row-fluid">
+
 				    
 				    <!-- breadcrumb -->
 					<ul class="breadcrumb">
@@ -58,20 +60,21 @@
 									?>
 										<tr>
 											<td><?php echo $row['fdatein']; ?></td>
-		                                    <td><?php  echo $row['fname']; ?></td>
+		                                    <td><?php echo $row['fname']; ?></td>
 		                                    <td><?php echo $row['fdesc']; ?></td>                                      
 		                                    <td width="150">
-												<form method="post" action="view_submit_assignment.php<?php echo '?id='.$get_id ?>&<?php echo 'post_id='.$id ?>">
-												 	<button data-placement="bottom" title="Lihat Siapa Siswa Yang Sudah Mengirimkan Tugas" id="<?php echo $id; ?>view" class="btn btn-success"><i class="icon-folder-open-alt icon-large"></i></button>
+		                                    	<div class="assignment-table">
+												<form method="post" 
+												action="view_submit_assignment.php?id=
+												<?php echo $get_id ?>&post_id=<?php echo $id ?>"
+												target="_blank">
+												 	<button data-placement="left" title="Lihat Siapa Siswa Yang Sudah Mengirimkan Tugas" id="<?php echo $id; ?>view" class="btn btn-success"><i class="icon-folder-open-alt icon-large"></i></button>
 												</form>
-
-												<?php 
-												if ($floc == ""){
-												}else{
-												?>
-													<a data-placement="bottom" title="Download" id="<?php echo $id; ?>download"  class="btn btn-info" href="<?php echo $row['floc']; ?>"><i class="icon-download icon-large"></i></a>
-												<?php } ?>
-													<a data-placement="bottom" title="Remove" id="<?php echo $id; ?>remove" class="btn btn-danger"  href="#<?php echo $id; ?>" data-toggle="modal"><i class="icon-remove icon-large"></i></a>
+												<?php if (!empty($floc)): ?>
+													<a data-placement="top" title="Download" id="<?php echo $id; ?>download"  class="btn btn-info" href="<?php echo $row['floc']; ?>"><i class="icon-download icon-large"></i></a>
+												<?php endif ?>
+													<a data-placement="top" title="Remove" id="<?php echo $id; ?>remove" class="btn btn-danger"  href="#<?php echo $id; ?>" data-toggle="modal"><i class="icon-remove icon-large"></i></a>
+												</div>
 												<?php include('delete_assigment_modal.php'); ?>
 											</td>
 												<script type="text/javascript">

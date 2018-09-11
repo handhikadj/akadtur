@@ -16,9 +16,9 @@
 		<!-- akhir menu pemberitahuan -->
 
 		<!-- menu pesan -->
-		<li class=""><a href="teacher_message.php<?php echo '?id='.$session_id; ?>"><i class="icon-chevron-right"></i><i class="icon-envelope-alt"></i>&nbsp;Pesan</a></li>
+		<!-- <li class=""><a href="teacher_message.php<?php echo '?id='.$session_id; ?>"><i class="icon-chevron-right"></i><i class="icon-envelope-alt"></i>&nbsp;Pesan</a></li> -->
 		<!-- akhir menu pesan -->
-		<li class=""><a href="teacher_backack.php"><i class="icon-chevron-right"></i><i class="icon-suitcase"></i>&nbsp;Backpack</a></li>
+		<!-- <li class=""><a href="teacher_backack.php"><i class="icon-chevron-right"></i><i class="icon-suitcase"></i>&nbsp;Backpack</a></li> -->
 		<!-- materi tambahan -->
 		<li class=""><a href="add_downloadable.php<?php echo '?id='.$session_id; ?>"><i class="icon-chevron-right"></i><i class="icon-plus-sign"></i>&nbsp;Materi Tambahan</a></li> 
 		<!-- akhir materi tambahan -->

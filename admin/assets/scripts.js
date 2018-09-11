@@ -122,14 +122,13 @@ $(function() {
 	});  
 
 	fileInput.on('change', function(event){
+		$("#for-loader-excel").addClass("for-loading-excel")
+		
 	    var get_id = $("#get-id-excel").val()
-	    $("#excel-questions-form").ajaxForm({
+	    $("#excel-questions-form").ajaxForm({	    	
 	    	data: {'hidden-excel': get_id},
 	    	uploadProgress: function(event, position, total, percentComplete) {
-	    		$("#for-loader-excel").addClass("for-loading-excel")
-				$("#for-loader-excel").css("width", percentComplete+"%")
-				// bar.width(percentVal);
-				// percent.html(percentVal);
+				$("#for-loader-excel").css("width", percentComplete + "%")
 			},
 			success: function(response) {
 				var response = JSON.parse(response)
@@ -142,5 +141,57 @@ $(function() {
 			}
 		}).submit();
 	});
+
+	$(".adminUTeacher").click(function(e){
+		e.preventDefault()
+
+		$("#hidden-updateT").val("")
+		$("#emailT").val("")
+		$("#nameT").val("")
+		$("#usernameT").val("")
+		$("#passT").val("")
+
+		var teacherId = $(this).attr("rel")
+		$.ajax({
+			method: "GET",
+			url: "./get_update_teacher.php?teacher_id=" + teacherId,
+			dataType: "JSON",
+			success: function(response) {
+				$("#hidden-updateT").val(response.data.teacher_id)
+				$("#emailT").val(response.data.email)
+				$("#nameT").val(response.data.name)
+				$("#usernameT").val(response.data.username)
+			},
+			error: function(response){
+				alert("Terjadi Error Pada Sistem")
+			}
+		});
+	})
+
+	$("#form-update-teacher").on('submit', function(e){
+
+		e.preventDefault()
+
+		var formUpdate = $(this).serialize()
+		$.ajax({
+			method: "POST",
+			url: "./update_teacher_process.php",
+			data: formUpdate,
+			dataType: "JSON",
+			success: function(response) {
+				if (!response.success) {
+					$.jGrowl(response.message, { header: 'Terjadi Error', life: 5000 })
+				} else {
+					$.jGrowl(response.message, { header: 'Berhasil', life: 5000 })
+					setTimeout(() => { 
+						location.reload()
+					}, 1500)
+				}
+			},
+			error: function(response){
+				alert("Terjadi Error Pada Sistem")
+			}
+		});
+	})
 
 }); // end of docs ready

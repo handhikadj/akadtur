@@ -62,8 +62,7 @@
 if (isset($_POST['save'])) {
 
     $email = $_POST['email'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    $name = $_POST['name'];
     $department_id = $_POST['department'];
 
 
@@ -76,8 +75,8 @@ if (isset($_POST['save'])) {
     </script>
     <?php
 }else{
-    $query6 = "INSERT INTO teacher (email, firstname, lastname, location,department_id)
-    VALUES ('$email', '$firstname', '$lastname', 'uploads/NO-IMAGE-AVAILABLE.jpg', '$department_id')"; 
+    $query6 = "INSERT INTO teacher (email, name, location, department_id)
+    VALUES ('$email', '$name', 'uploads/NO-IMAGE-AVAILABLE.jpg', '$department_id')"; 
     mysqli_query($db, $query6) or die(mysqli_error($db)); 
     ?>
     <script>
